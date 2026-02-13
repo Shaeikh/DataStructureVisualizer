@@ -22,7 +22,6 @@ int main()
 		Game.RenderScene();
 		Game.UpdateScene(dt);
 
-		DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
 
 		EndDrawing();
 	}

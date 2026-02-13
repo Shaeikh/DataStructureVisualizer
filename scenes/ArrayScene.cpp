@@ -2,10 +2,10 @@
 
 void ArrayScene::Render()
 {
-	std::cout << "This works!!";
+	std::cout << "This works!!\n";
 }
 
 void ArrayScene::Update(double dt)
 {
-	std::cout << "It updates as well!!";
+	std::cout << "It updates as well!!\n";
 }
