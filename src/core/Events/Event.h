@@ -5,7 +5,7 @@
         - Array      (Insert, Erase, Update)
         - LinkedList (Insert, Erase, Update)
         - Stack      (Push, Pop, Top)
-        - Queue      (Enqueue, Dequeue, Front)
+        - Queue      (Enqueue, Dequeue, Front
 */
 
 enum class EventType {

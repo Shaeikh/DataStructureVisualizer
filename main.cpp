@@ -4,7 +4,7 @@
 
 int main() {
 
-    InitWindow(1000, 600, "Array Visualizer");
+    InitWindow(1000, 600, "Array Visualizerr");
 
     EventBus bus;
     Array array(bus);
