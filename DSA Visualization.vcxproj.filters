@@ -18,15 +18,30 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scenes\manager\SceneManager.h">
+    <ClCompile Include="src\scenes\manager\SceneManager.h">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scenes\ArrayScene.cpp">
+    <ClCompile Include="src\scenes\DataStructures\Linear\ArrayScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\DataStructures\Linear\Array.h">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="scenes\manager\scenes.h">
+    <ClInclude Include="src\scenes\manager\scenes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Events\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Events\Observer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\Events\EventBus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\visuals\Array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

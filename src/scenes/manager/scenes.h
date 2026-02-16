@@ -4,7 +4,6 @@ class ArrayScene
 	: public Scene
 {
 private:
-	int arr[20];
 
 public:
 	void Render() override;

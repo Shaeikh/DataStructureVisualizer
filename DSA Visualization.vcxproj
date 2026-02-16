@@ -134,11 +134,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="scenes\ArrayScene.cpp" />
-    <ClCompile Include="scenes\manager\SceneManager.h" />
+    <ClCompile Include="src\core\DataStructures\Linear\Array.h" />
+    <ClCompile Include="src\scenes\DataStructures\Linear\ArrayScene.cpp" />
+    <ClCompile Include="src\scenes\manager\SceneManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="scenes\manager\scenes.h" />
+    <ClInclude Include="src\core\Events\Event.h" />
+    <ClInclude Include="src\core\Events\EventBus.h" />
+    <ClInclude Include="src\core\Events\Observer.h" />
+    <ClInclude Include="src\scenes\manager\scenes.h" />
+    <ClInclude Include="src\visuals\Array.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,32 +1,45 @@
-#include "scenes/manager/scenes.h"
+#include "raylib.h"
+#include "src/visuals/Array.h"
+#include "src/core/DataStructures/Linear/Array.h"
 
-int main()
-{
-	const int screenWidth = 800;
-	const int screenHeight = 450;
+int main() {
 
-	InitWindow(screenWidth, screenHeight, "DSA Visualizer");
+    InitWindow(1000, 600, "Array Visualizer");
 
-	SetTargetFPS(60);
+    EventBus bus;
+    Array array(bus);
+    ArrayVisualizer visualizer;
 
-	SceneManager Game;
-	Game.PushScene(std::make_unique<ArrayScene>());
+    bus.subscribe(&visualizer);
 
-	while (!WindowShouldClose())
-	{
-		float dt = GetFrameTime();
-		BeginDrawing();
+    SetTargetFPS(60);
 
-		ClearBackground(RAYWHITE);
+    while (!WindowShouldClose()) {
 
-		Game.RenderScene();
-		Game.UpdateScene(dt);
+        float dt = GetFrameTime();
 
+        // Input
+        if (IsKeyPressed(KEY_ONE))
+            array.Insert(0, GetRandomValue(1, 99));
 
-		EndDrawing();
-	}
+        if (IsKeyPressed(KEY_TWO))
+            array.Erase(0);
 
-	CloseWindow();
+        if (IsKeyPressed(KEY_THREE))
+            array.Update(0, GetRandomValue(100, 999));
 
-	return 0;
+        visualizer.update(dt);
+
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+
+        visualizer.draw(array.GetData());
+
+        DrawText("1: Insert | 2: Remove | 3: Update | 4: Swap",
+            20, 20, 20, DARKGRAY);
+
+        EndDrawing();
+    }
+
+    CloseWindow();
 }
