@@ -3,6 +3,6 @@
 
 class IObserver {
 public:
-    virtual void onEvent(const Event& event) = 0;
+    virtual void OnEvent(const Event& event) = 0;
     virtual ~IObserver() = default;
 };

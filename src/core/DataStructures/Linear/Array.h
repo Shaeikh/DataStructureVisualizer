@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <vector>
 #include "../../Events/EventBus.h"
 
@@ -9,6 +10,8 @@ public:
 
     void Insert(size_t index, int value)
     {
+        if (data.size() == 20)
+            return;
         if (index > data.size())
             return;
 
@@ -35,6 +38,38 @@ public:
         data[index] = value;
 
         eventBus.emit({ EventType::Update, index, value });
+    }
+
+    std::optional<int> Search(bool byIndex, int indexOrValue)
+    {
+        if (byIndex)
+        {
+            size_t idx = static_cast<size_t>(indexOrValue);
+
+            eventBus.emit({ EventType::Search, idx, idx < data.size() ? data[idx] : 0 });
+            if (idx < data.size())
+            {
+                return data[idx];
+            }
+        }
+        else
+        {
+            int idx = -1;
+            for (size_t i = 0; i < data.size(); i++)
+            {
+                eventBus.emit({ EventType::Search, i, data[i], indexOrValue });
+                if (data[i] == indexOrValue)
+                {
+                    idx = i;
+                    break;
+                }
+            }
+
+            if (idx != -1)
+                return idx;
+        }
+
+        return std::nullopt;
     }
 
     const std::vector<int>& GetData() const {

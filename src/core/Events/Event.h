@@ -12,6 +12,7 @@ enum class EventType {
     Insert,
     Erase,
     Update,
+    Search,
     Push,
     Pop,
     Top,
@@ -24,4 +25,5 @@ struct Event {
     EventType type;
     size_t index;
     int value;
+    int targetValue = -9999;
 };

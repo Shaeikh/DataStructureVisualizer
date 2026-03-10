@@ -17,7 +17,7 @@ class Scene
 {
 public:
 	virtual void Render() = 0;
-	virtual void Update(double dt) = 0;
+	virtual void Update(float dt) = 0;
 	virtual ~Scene() {};
 };
 
@@ -59,7 +59,7 @@ public:
 			
 	}
 
-	void UpdateScene(double dt)
+	void UpdateScene(float dt)
 	{
 		if (!m_scenes.empty())
 			m_scenes.top()->Update(dt);

@@ -137,13 +137,22 @@
     <ClCompile Include="src\core\DataStructures\Linear\Array.h" />
     <ClCompile Include="src\scenes\DataStructures\Linear\ArrayScene.cpp" />
     <ClCompile Include="src\scenes\manager\SceneManager.h" />
+    <ClCompile Include="src\ui\Alert.h" />
+    <ClCompile Include="src\ui\TextInputField.h" />
+    <ClCompile Include="src\util\util.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\Events\Event.h" />
     <ClInclude Include="src\core\Events\EventBus.h" />
     <ClInclude Include="src\core\Events\Observer.h" />
-    <ClInclude Include="src\scenes\manager\scenes.h" />
-    <ClInclude Include="src\visuals\Array.h" />
+    <ClInclude Include="src\scenes\manager\Scenes.h" />
+    <ClInclude Include="src\ui\Button.h" />
+    <ClInclude Include="src\ui\Constants.h" />
+    <ClInclude Include="src\ui\Container.h" />
+    <ClInclude Include="src\ui\Row.h" />
+    <ClInclude Include="src\ui\ScreenScaler.h" />
+    <ClInclude Include="src\util\util.h" />
+    <ClInclude Include="src\visuals\ArrayVisualizer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

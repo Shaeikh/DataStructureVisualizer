@@ -27,9 +27,18 @@
     <ClCompile Include="src\core\DataStructures\Linear\Array.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\ui\Alert.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ui\TextInputField.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\scenes\manager\scenes.h">
+    <ClInclude Include="src\scenes\manager\Scenes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\core\Events\Event.h">
@@ -41,7 +50,25 @@
     <ClInclude Include="src\core\Events\EventBus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\visuals\Array.h">
+    <ClInclude Include="src\visuals\ArrayVisualizer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\Row.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\ScreenScaler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\Constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\util\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ui\Container.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

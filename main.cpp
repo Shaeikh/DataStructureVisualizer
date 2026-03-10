@@ -1,42 +1,36 @@
 #include "raylib.h"
-#include "src/visuals/Array.h"
-#include "src/core/DataStructures/Linear/Array.h"
+#include "src/scenes/manager/Scenes.h"
+
+#include "src/ui/Button.h"
+#include "src/ui/Row.h"
 
 int main() {
+    SetConfigFlags(FLAG_WINDOW_UNDECORATED);
 
-    InitWindow(1000, 600, "Array Visualizerr");
+    int heightOffset = 40;
 
-    EventBus bus;
-    Array array(bus);
-    ArrayVisualizer visualizer;
+    InitWindow(1920, 1080, "Array Visualizer");
+    Util::InitFonts();
+    std::cout << GetMonitorHeight(0) << std::endl;
+    SceneManager Game;
 
-    bus.subscribe(&visualizer);
+    Game.PushScene(std::make_unique<ArrayScene>());
 
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
+        //int display = GetCurrentMonitor();
+        //if (GetScreenWidth() != GetMonitorWidth(display) || GetScreenHeight() != GetMonitorHeight(display))
+        //    SetWindowSize(GetMonitorWidth(display), GetMonitorHeight(display));
 
         float dt = GetFrameTime();
-
-        // Input
-        if (IsKeyPressed(KEY_ONE))
-            array.Insert(0, GetRandomValue(1, 99));
-
-        if (IsKeyPressed(KEY_TWO))
-            array.Erase(0);
-
-        if (IsKeyPressed(KEY_THREE))
-            array.Update(0, GetRandomValue(100, 999));
-
-        visualizer.update(dt);
-
+        
+        Game.UpdateScene(dt);
         BeginDrawing();
         ClearBackground(RAYWHITE);
-
-        visualizer.draw(array.GetData());
-
-        DrawText("1: Insert | 2: Remove | 3: Update | 4: Swap",
-            20, 20, 20, DARKGRAY);
+        
+        Game.RenderScene();
+        
 
         EndDrawing();
     }
