@@ -54,7 +54,7 @@ public:
                     color = RED;
 
                 if (currentEvent.type == EventType::Update && i == currentEvent.index)
-                    color = YELLOW;
+                    color = PURPLE;
 
                 if (currentEvent.type == EventType::Search && i == currentEvent.index)
                 {
@@ -105,51 +105,61 @@ public:
             if (currentEvent.type == EventType::Search)
             {
                 if (eventQueue.empty())
-                    DrawText(
+                    DrawTextEx(
+                        font,
                         "Search Result",
-                        startX + 25,
-                        y + 120,
-                        40,
-                        GRAY
+                        { (float)startX,
+                        y + 120.0f },
+                        50,
+                        0,
+                        DARKGRAY
                     );
 
                 if (currentEvent.targetValue == data[i] && eventQueue.empty())
                 {
-                    DrawText(
+                    DrawTextEx(
+                        font,
                         TextFormat("'%d' is at index [%d]", currentEvent.value, currentEvent.index),
-                        startX + 25,
-                        y + 155,
-                        30,
+                        { startX + 0.0f,
+                        y + 165.0f },
+                        40,
+                        0,
                         BLACK
                     );
                 }
                 else if (currentEvent.index == i && eventQueue.empty() && currentEvent.targetValue == -9999) // ensures that the search is based on index
                 {
-                    DrawText(
+                    DrawTextEx(
+                        font,
                         TextFormat("Value found at index [%d] is '%d'", currentEvent.index, currentEvent.value),
-                        startX + 25,
-                        y + 155,
-                        30,
+                        { startX + 0.0f,
+                        y + 165.0f },
+                        40,
+                        0,
                         BLACK
                     );
                 }
                 else if (currentEvent.index >= data.size() && eventQueue.empty())
                 {
-                    DrawText(
+                    DrawTextEx(
+                        font,
                         TextFormat("Invalid Index Provided!"),
-                        startX + 25,
-                        y + 155,
-                        30,
+                        { startX + 0.0f,
+                        y + 165.0f },
+                        40,
+                        0,
                         RED
                     );
                 }
                 else if (std::count(data.begin(), data.end(), currentEvent.targetValue) <= 0 && currentEvent.targetValue != -9999 && eventQueue.empty())
                 {
-                    DrawText(
+                    DrawTextEx(
+                        font,
                         TextFormat("'%d' Not Found!", currentEvent.targetValue),
-                        startX + 25,
-                        y + 155,
-                        30,
+                        { startX + 0.0f,
+                        y + 165.0f },
+                        40,
+                        0,
                         RED
                     );
                 }
