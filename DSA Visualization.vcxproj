@@ -136,12 +136,15 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\core\DataStructures\Linear\Array.h" />
     <ClCompile Include="src\scenes\DataStructures\Linear\ArrayScene.cpp" />
+    <ClCompile Include="src\scenes\DataStructures\Linear\LinkListScene.cpp" />
     <ClCompile Include="src\scenes\manager\SceneManager.h" />
     <ClCompile Include="src\ui\Alert.h" />
     <ClCompile Include="src\ui\TextInputField.h" />
     <ClCompile Include="src\util\util.cpp" />
+    <ClCompile Include="src\visuals\LinkListVisualizer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\core\DataStructures\Linear\LinkList.h" />
     <ClInclude Include="src\core\Events\Event.h" />
     <ClInclude Include="src\core\Events\EventBus.h" />
     <ClInclude Include="src\core\Events\Observer.h" />

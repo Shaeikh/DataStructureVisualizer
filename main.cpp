@@ -9,20 +9,16 @@ int main() {
 
     int heightOffset = 40;
 
-    InitWindow(1920, 1080, "Array Visualizer");
+    InitWindow(1920, 1080, "LinkList Visualizer");
     Util::InitFonts();
-    std::cout << GetMonitorHeight(0) << std::endl;
+
     SceneManager Game;
 
-    Game.PushScene(std::make_unique<ArrayScene>());
+    Game.PushScene(std::make_unique<LinkListScene>());
 
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
-        //int display = GetCurrentMonitor();
-        //if (GetScreenWidth() != GetMonitorWidth(display) || GetScreenHeight() != GetMonitorHeight(display))
-        //    SetWindowSize(GetMonitorWidth(display), GetMonitorHeight(display));
-
         float dt = GetFrameTime();
         
         Game.UpdateScene(dt);

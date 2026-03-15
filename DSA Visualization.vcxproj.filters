@@ -36,6 +36,12 @@
     <ClCompile Include="src\ui\TextInputField.h">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\visuals\LinkListVisualizer.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\scenes\DataStructures\Linear\LinkListScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\manager\Scenes.h">
@@ -69,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ui\Container.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\DataStructures\Linear\LinkList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
