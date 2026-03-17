@@ -3,6 +3,7 @@
 // Core
 #include "../../core/DataStructures/Linear/Array.h"
 #include "../../core/DataStructures/Linear/LinkList.h"
+#include "../../core/DataStructures/Linear/Stack.h"
 
 // Visualizers
 #include "../../visuals/ArrayVisualizer.h"
@@ -15,15 +16,12 @@
 #include "../../ui/TextInputField.h"
 #include "../../ui/Container.h"
 
-
-
-
 class ArrayScene
 	: public Scene
 {
 private:
-	EventBus        bus;
-	Array array     = Array(bus);
+	EventBus bus;
+	Array array = Array(bus);
 	ArrayVisualizer visualizer;
 
 	std::vector<std::string> historyStack;
@@ -108,10 +106,10 @@ private:
 	InputField inputValue = InputField(inputFieldWidth, 60.0f, "Value", 3);
 
 	// Alerts
-	Alert alertArrayFull = Alert("Array Full", "Array is limited to 10 elements.");
-	Alert alertArrayEmpty = Alert("Array Empty", "Array is empty.");
+	Alert alertLLFull = Alert("Link List Full", "Linked List is constrained to hold 12 elements at most.");
+	Alert alertLLEmpty = Alert("Link List Empty", "Linked List is empty.");
 	Alert alertInvalidIndex = Alert("Invalid Index", "Please provide a valid index between ...");
-	Alert alertSearchInputNotProvided = Alert("Empty Input", "Please provide a valid index or a value to perform the search.");
+	Alert alertSearchInputNotProvided = Alert("Empty Value Field", "Please provide a valid value to perform the search.");
 
 
 	// Containers
@@ -122,4 +120,57 @@ private:
 
 	// Font (duh)
 	Font font = Util::DefaultFont;
+};
+
+class StackScene
+	: public Scene
+{
+private:
+	EventBus bus;
+	Stack stack = Stack(bus);
+	ArrayVisualizer visualizer;
+
+	std::vector<std::string> historyStack;
+
+	// Button/Row
+	Vector2 bDimension = { 200, 60 };
+	Button b_push = Button({ 0,0,bDimension.x,bDimension.y }, "Push", 40);
+	Button b_update = Button({ 0,0,bDimension.x,bDimension.y }, "Update", 40);
+	Button b_pop = Button({ 0,0,bDimension.x,bDimension.y }, "Pop", 40);
+	//Button b_search = Button({ 0,0,bDimension.x,bDimension.y }, "Search", 40);
+	Row r_options = Row(20);
+
+	// Input Fields
+	float inputFieldWidth = 240.0f;
+	//InputField inputIndex = InputField(inputFieldWidth, 60.0f, "Index", 3);
+	InputField inputValue = InputField(inputFieldWidth, 60.0f, "Value", 3);
+
+	// Alerts
+	Alert alertStackFull = Alert("Array Full", "Array is limited to 10 elements.");
+	Alert alertStackEmpty = Alert("Array Empty", "Array is empty.");
+	//Alert alertInvalidIndex = Alert("Invalid Index", "Please provide a valid index between ...");
+	//Alert alertSearchInputNotProvided = Alert("Empty Input", "Please provide a value to perform the search.");
+
+
+	// Containers
+	Container containerDefinition = Container("Definition", Rectangle{ 20, 30, GetScreenWidth() - 40.0f, 180.0f });
+	Container containerHistory = Container("History", Rectangle{ GetScreenWidth() - 480.0f, 260.0f, 460.0f, GetScreenHeight() - 280.0f }, 0.1);
+	Container containerVisualization = Container("Visualization", Rectangle{ 20, 260.0f, GetScreenWidth() - 540.0f, GetScreenHeight() - 280.0f }, 0.05f);
+	Container containerOperations = Container("Operations", Rectangle{ 40, GetScreenHeight() - 270.0f, GetScreenWidth() - 580.0f, GetScreenHeight() - 850.0f }, 0.1f);
+
+	// Font (duh)
+	Font font = Util::DefaultFont;
+public:
+	StackScene()
+	{
+		bus.subscribe(&visualizer);
+
+		// Adding Buttons to the row (the inconsistency in naming is ridiculous oml)
+		r_options.Add(&b_push);
+		r_options.Add(&b_update);
+		r_options.Add(&b_pop);
+		//r_options.Add(&b_search);
+	}
+	void Render() override;
+	void Update(float dt) override;
 };

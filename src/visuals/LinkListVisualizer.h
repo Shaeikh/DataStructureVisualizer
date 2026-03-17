@@ -43,13 +43,71 @@ public:
 
         int valueStartX = 40;
         int linkStartX = valueStartX + valueCellWidth;
-        int y = 400;
+        int _y = 450; // TODO: most shitiest tape together FIX!!!!!!!!!
+        int y = 450;
         int gap = 60;
+        int fontSize = 30;
 
         int compoundWidth = valueCellWidth + linkCellWidth + gap;
 
         int i = 0; // since std::list uses iterator rather than indices
 
+        // Head node rectangle
+        Rectangle headNodeRectangle = {
+            40,
+            y - 100,
+            linkCellWidth,
+            cellHeight
+        };
+
+        DrawRectanglePro(
+            headNodeRectangle,
+            { 0, 0 },
+            0.0f,
+            WHITE
+        );
+
+        DrawRectangleLinesEx(
+            headNodeRectangle,
+            4.0f,
+            BLACK
+        );
+
+        DrawTextEx(
+            font,
+            "Head",
+            {
+                40.0f + (linkCellWidth - 
+                    MeasureTextEx(
+                        font, 
+                        "Head", 
+                        fontSize + 5.0f, 
+                        0.0f
+                    ).x
+                ) / 2,
+                (float) y - 100 - 40
+            },
+            fontSize + 5.0f,
+            0.0f,
+            DARKGRAY
+        );
+
+        auto firstNodeAddress = data.begin();
+        std::string headAddress = data.size() > 0 ? TextFormat("%p", &(*firstNodeAddress)) : "NULL";
+        if (headAddress != "NULL")
+            headAddress = headAddress.substr(headAddress.size() - 5, 4);
+        Vector2 textSize = MeasureTextEx(font, headAddress.c_str(), fontSize, 0);
+        DrawTextEx(
+            font,
+            headAddress.c_str(),
+            {
+                40.0f + (linkCellWidth - textSize.x) / 2,
+                y - 100 + (cellHeight - textSize.y) / 2
+            },
+            fontSize,
+            0.0f,
+            BLACK
+        );
         
         for (auto it = data.begin(); it != data.end(); ++it)
         {
@@ -72,6 +130,12 @@ public:
             }
 
             int x = valueStartX + i * compoundWidth;
+            int y = _y;
+            if (i >= 6)
+            {
+                x = valueStartX + (i - 6) * compoundWidth;
+                y += 100;
+            }
             // Value rectangle
             Rectangle valueRectangle = {
                 x,
@@ -107,7 +171,6 @@ public:
             );
 
             
-            int fontSize = 30;
             const char* valueText = TextFormat("%d", *it);
             Vector2 textSize = MeasureTextEx(font, valueText, fontSize, 0);
 
@@ -216,7 +279,7 @@ public:
                         font,
                         "Search Result",
                         { (float) valueStartX,
-                        y + 120.0f },
+                        _y + 160.0f },
                         50,
                         0,
                         DARKGRAY
@@ -226,45 +289,45 @@ public:
                 {
                     DrawTextEx(
                         font,
-                        TextFormat("'%d' is at index [%d]", currentEvent.value, currentEvent.index),
+                        TextFormat("Value [%d] found in the linked list", currentEvent.value),
                         { (float) valueStartX,
-                        y + 165.0f },
+                        _y + 210.0f },
                         40,
                         0,
                         BLACK
                     );
                 }
-                else if (currentEvent.index == i && eventQueue.empty() && currentEvent.targetValue == -9999) // ensures that the search is based on index
-                {
-                    DrawTextEx(
-                        font,
-                        TextFormat("Value found at index [%d] is '%d'", currentEvent.index, currentEvent.value),
-                        { (float) valueStartX,
-                        y + 165.0f },
-                        40,
-                        0,
-                        BLACK
-                    );
-                }
-                else if (currentEvent.index >= data.size() && eventQueue.empty())
-                {
-                    DrawTextEx(
-                        font,
-                        TextFormat("Invalid Index Provided!"),
-                        { (float) valueStartX,
-                        y + 165.0f },
-                        40,
-                        0,
-                        RED
-                    );
-                }
+                //else if (currentEvent.index == i && eventQueue.empty() && currentEvent.targetValue == -9999) // ensures that the search is based on index
+                //{
+                //    DrawTextEx(
+                //        font,
+                //        TextFormat("Value found at index [%d] is '%d'", currentEvent.index, currentEvent.value),
+                //        { (float) valueStartX,
+                //        y + 165.0f },
+                //        40,
+                //        0,
+                //        BLACK
+                //    );
+                //}
+                //else if (currentEvent.index >= data.size() && eventQueue.empty())
+                //{
+                //    DrawTextEx(
+                //        font,
+                //        TextFormat("Invalid Index Provided!"),
+                //        { (float) valueStartX,
+                //        y + 165.0f },
+                //        40,
+                //        0,
+                //        RED
+                //    );
+                //}
                 else if (std::count(data.begin(), data.end(), currentEvent.targetValue) <= 0 && currentEvent.targetValue != -9999 && eventQueue.empty())
                 {
                     DrawTextEx(
                         font,
-                        TextFormat("'%d' Not Found!", currentEvent.targetValue),
+                        TextFormat("Value [%d] Not Found!", currentEvent.targetValue),
                         { (float) valueStartX,
-                        y + 165.0f },
+                        _y + 210.0f },
                         40,
                         0,
                         RED

@@ -23,17 +23,17 @@ void LinkListScene::Render()
 
 void LinkListScene::Update(float dt)
 {
-	// Array Definition
+	// Link List Definition
 	int fontSize = 50;
-	std::string arrayDef = "A linear data structure where elements are stored as nodes, each containing data and a pointer \nlinking to the next node in sequence together.";
+	std::string llDef = "A linear data structure where elements are stored as nodes, each containing data and a pointer \nlinking to the next node in sequence together.";
 	SetTextLineSpacing(-5);
-	std::string arrayDefWrapped = Util::WrapTextToWidth(arrayDef, GetScreenWidth() - 40, fontSize);
+	std::string llDefWrapped = Util::WrapTextToWidth(llDef, GetScreenWidth() - 40, fontSize);
 
 	//Heading
 	DrawTextEx(font, "Linked List:", { 40, 40 }, 60, 0, BLACK);
 
 	//Definition
-	DrawTextEx(font, arrayDefWrapped.c_str(), { 40, 100 }, fontSize, 0, DARKGRAY);
+	DrawTextEx(font, llDefWrapped.c_str(), { 40, 100 }, fontSize, 0, DARKGRAY);
 
 	DrawLineEx({ 0, 230.0f }, { GetScreenWidth() - 0.0f, 230.0f }, 4.0f, BLACK);
 
@@ -98,8 +98,8 @@ void LinkListScene::Update(float dt)
 		inputValue.GetText() : GetRandomValue(1, 99);
 
 	b_insert.OnClick([&]() {
-		if (linkList.GetData().size() == 20)
-			alertArrayFull.Show();
+		if (linkList.GetData().size() == 12)
+			alertLLFull.Show();
 		else if (ii < 0 || ii > linkList.GetData().size())
 		{
 			alertInvalidIndex.SetSubText(TextFormat("Please provide a valid index ranging from 0-%d.", linkList.GetData().size()), 140.0f);
@@ -114,7 +114,7 @@ void LinkListScene::Update(float dt)
 
 	b_update.OnClick([&]() {
 		if (linkList.GetData().size() == 0)
-			alertArrayEmpty.Show();
+			alertLLEmpty.Show();
 		else if (ii < 0 || ii >= linkList.GetData().size())
 		{
 			alertInvalidIndex.SetSubText(TextFormat("Please provide a valid index ranging from 0-%d.", linkList.GetData().size() == 0 ? 0 : linkList.GetData().size() - 1), 140.0f);
@@ -129,7 +129,7 @@ void LinkListScene::Update(float dt)
 
 	b_delete.OnClick([&]() {
 		if (linkList.GetData().size() == 0)
-			alertArrayEmpty.Show();
+			alertLLEmpty.Show();
 		else if (ii < 0 || ii >= linkList.GetData().size())
 		{
 			alertInvalidIndex.SetSubText(TextFormat("Please provide a valid index ranging from 0-%d.", linkList.GetData().size() == 0 ? 0 : linkList.GetData().size() - 1), 140.0f);
@@ -149,17 +149,17 @@ void LinkListScene::Update(float dt)
 		//	alertInvalidIndex.Show();
 		//}
 		if (linkList.GetData().size() == 0)
-			alertArrayEmpty.Show();
-		else if (inputIndex.GetText() == -9999 && inputValue.GetText() == -9999)
+			alertLLEmpty.Show();
+		else if (inputValue.GetText() == -9999)
 			alertSearchInputNotProvided.Show();
-		else if (inputIndex.GetText() != -9999)
-		{
-			linkList.Search(true, ii); // search by index
-			historyStack.push_back(TextFormat("Search:\n\t\tIndex = %d", ii));
-		}
+		//else if (inputIndex.GetText() != -9999)
+		//{
+		//	linkList.Search(true, ii); // search by index
+		//	historyStack.push_back(TextFormat("Search:\n\t\tIndex = %d", ii));
+		//}
 		else
 		{
-			linkList.Search(false, iv); // search by value (index is priortized if both provided)
+			linkList.Search(iv); // search by value (index is priortized if both provided)
 			historyStack.push_back(TextFormat("Search:\n\t\tValue = %d", iv));
 		}
 		});
@@ -170,8 +170,8 @@ void LinkListScene::Update(float dt)
 	inputIndex.Update();
 	inputValue.Update();
 
-	alertArrayFull.Update(dt);
-	alertArrayEmpty.Update(dt);
+	alertLLFull.Update(dt);
+	alertLLEmpty.Update(dt);
 	alertInvalidIndex.Update(dt);
 	alertSearchInputNotProvided.Update(dt);
 

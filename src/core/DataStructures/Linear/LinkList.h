@@ -60,38 +60,40 @@ public:
         eventBus.emit({ EventType::Update, index, value });
     }
 
-    std::optional<int> Search(bool byIndex, int indexOrValue)
+    //std::optional<int> Search(bool byIndex, int indexOrValue)
+    // there is no indexing, returning true if found 
+    bool Search(int value)
     {
-        if (byIndex)
-        {
-            size_t idx = static_cast<size_t>(indexOrValue);
+        //if (byIndex)
+        //{
+        //    size_t idx = static_cast<size_t>(indexOrValue);
 
-            if (idx >= data.size())
-                return std::nullopt;
+        //    if (idx >= data.size())
+        //        return std::nullopt;
 
-            auto it = data.begin();
-            std::advance(it, idx);
+        //    auto it = data.begin();
+        //    std::advance(it, idx);
 
-            eventBus.emit({ EventType::Search, idx, *it });
+        //    eventBus.emit({ EventType::Search, idx, *it });
 
-            return *it;
-        }
-        else
+        //    return *it;
+        //}
+        //else
         {
             size_t i = 0;
 
             for (auto& val : data)
             {
-                eventBus.emit({ EventType::Search, i, val, indexOrValue });
+                eventBus.emit({ EventType::Search, i, val, value });
 
-                if (val == indexOrValue)
-                    return i;
+                if (val == value)
+                    return true;
 
                 i++;
             }
         }
 
-        return std::nullopt;
+        return false;
     }
 
     //void Display()
