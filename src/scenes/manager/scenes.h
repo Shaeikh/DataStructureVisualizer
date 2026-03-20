@@ -148,7 +148,7 @@ private:
 	InputField inputValue = InputField(inputFieldWidth, 60.0f, "Value", 3);
 
 	// Alerts
-	Alert alertStackFull = Alert("Stack Full", "Stack is limited to 10 elements.");
+	Alert alertStackFull = Alert("Stack Full", "Stack is limited to 8 elements.");
 	Alert alertStackEmpty = Alert("Stack Empty", "There are no elements inside the stack.");
 	//Alert alertInvalidIndex = Alert("Invalid Index", "Please provide a valid index between ...");
 	//Alert alertSearchInputNotProvided = Alert("Empty Input", "Please provide a value to perform the search.");

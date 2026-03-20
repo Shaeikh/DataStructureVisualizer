@@ -11,11 +11,12 @@ public:
 
     void Push(int value)
     {
-        if (data.size() == 20)
+        if (data.size() == 8)
             return;
-        data.push_front(value);
+        // using back instead of front cuz the visualizer going to show it down to top
+        data.push_back(value);
 
-        eventBus.emit({ EventType::Push, 0, value });
+        eventBus.emit({ EventType::Push, data.size() - 1, value});
     }
 
     void Pop()
@@ -23,10 +24,12 @@ public:
         if (data.empty())
             return;
 
-        int tmp = data.front();
-        data.pop_front();
+        int tmp = data.back();
+        
+        
+        data.pop_back();
+        eventBus.emit({ EventType::Pop, data.size() - 1, tmp});
 
-        eventBus.emit({ EventType::Pop, 0, tmp });
     }
 
     void Update(int value)
@@ -34,15 +37,15 @@ public:
         if (data.empty())
             return;
 
-        data.front() = value;
+        data.back() = value;
 
-        eventBus.emit({ EventType::Update, 0, value });
+        eventBus.emit({ EventType::Update, data.size() - 1, value});
     }
 
     int Top()
     {
         if (!data.empty())
-            return data.front();
+            return data.back();
         return -9999;
     }
 

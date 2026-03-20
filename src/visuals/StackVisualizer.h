@@ -54,6 +54,8 @@ public:
             BLACK
         );
 
+        DrawRectangle(containerX, containerY, containerWidth, 10, RAYWHITE);
+
         for (size_t i = 0; i < data.size(); i++)
         {
             Color color = WHITE;
@@ -77,10 +79,10 @@ public:
                 cellHeight
             };
 
-            //DrawRectangleProRounded(
-            //    rect, {}, 0,
-            //    color
-            //);
+            DrawRectanglePro(
+                rect, {}, 0,
+                color
+            );
 
             DrawRectangleLinesEx(
                 rect,
@@ -96,7 +98,7 @@ public:
                 valueText,
                 { 
                     containerX + (containerWidth - textSize.x) / 2,
-                    containerY + containerHeight - cellHeight - (cellHeight - 4) * i
+                    containerY + containerHeight - cellHeight - (cellHeight - 4) * i + (cellHeight - textSize.y) / 2
                 },
                 fontSize,
                 0,

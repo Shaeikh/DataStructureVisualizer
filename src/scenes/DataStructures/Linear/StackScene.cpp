@@ -96,7 +96,7 @@ void StackScene::Update(float dt)
 		inputValue.GetText() : GetRandomValue(1, 99);
 
 	b_push.OnClick([&]() {
-		if (stack.GetData().size() == 20)
+		if (stack.GetData().size() == 8)
 			alertStackFull.Show();
 		//else if (ii < 0 || ii > array.GetData().size())
 		//{
