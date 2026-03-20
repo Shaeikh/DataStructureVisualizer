@@ -48,15 +48,13 @@ void StackScene::Update(float dt)
 		Color itemColor = BLACK;
 		std::string str = historyStack[i];
 
-		// Can make this better by searching exact sub str using str.find("Something") != std::string::npos but we got different starting letter for each so...
-		if (str[0] == 'I') // Insert 
+		
+		if (str[0] == 'P' && str[1] == 'u') // Push 
 			itemColor = GREEN;
-		else if (str[0] == 'D') // Delete
+		else if (str[0] == 'P' && str[1] == 'o') // Pop
 			itemColor = RED;
 		else if (str[0] == 'U') // Update
 			itemColor = PURPLE;
-		else if (str[0] == 'S') // Search
-			itemColor = ORANGE;
 
 		DrawTextEx(
 			font,
@@ -125,9 +123,9 @@ void StackScene::Update(float dt)
 			stack.Update(iv);
 			historyStack.push_back(TextFormat("Update:\n\t\tValue = %d", iv));
 		}
-		});
+	});
 
-	b_push.OnClick([&]() {
+	b_pop.OnClick([&]() {
 		if (stack.GetData().size() == 0)
 			alertStackEmpty.Show();
 		//else if (ii < 0 || ii >= array.GetData().size())
@@ -137,10 +135,10 @@ void StackScene::Update(float dt)
 		//}
 		else
 		{
-			historyStack.push_back(TextFormat("Delete:\n\t\tValue: %d", stack.Top()));
+			historyStack.push_back(TextFormat("Pop:\n\t\tValue: %d", stack.Top()));
 			stack.Pop();
 		}
-		});
+	});
 
 	//b_search.OnClick([&]() {
 	//	//if (ii < 0 || ii > array.GetData().size())

@@ -137,6 +137,7 @@
     <ClCompile Include="src\core\DataStructures\Linear\Array.h" />
     <ClCompile Include="src\scenes\DataStructures\Linear\ArrayScene.cpp" />
     <ClCompile Include="src\scenes\DataStructures\Linear\LinkListScene.cpp" />
+    <ClCompile Include="src\scenes\DataStructures\Linear\StackScene.cpp" />
     <ClCompile Include="src\scenes\manager\SceneManager.h" />
     <ClCompile Include="src\ui\Alert.h" />
     <ClCompile Include="src\ui\TextInputField.h" />
@@ -145,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\core\DataStructures\Linear\LinkList.h" />
+    <ClInclude Include="src\core\DataStructures\Linear\Stack.h" />
     <ClInclude Include="src\core\Events\Event.h" />
     <ClInclude Include="src\core\Events\EventBus.h" />
     <ClInclude Include="src\core\Events\Observer.h" />
@@ -156,6 +158,7 @@
     <ClInclude Include="src\ui\ScreenScaler.h" />
     <ClInclude Include="src\util\util.h" />
     <ClInclude Include="src\visuals\ArrayVisualizer.h" />
+    <ClInclude Include="src\visuals\StackVisualizer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

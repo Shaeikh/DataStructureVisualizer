@@ -1,12 +1,12 @@
 #include "raylib.h"
-#include <stack>
+#include <deque>
 #include <queue>
 
 #include "../core/Events/EventBus.h"
 
 #include "../util/util.h"
 
-class ArrayVisualizer : public IObserver {
+class StackVisualizer : public IObserver {
 public:
     void OnEvent(const Event& e) override {
         // Insert/Erase/Update will animate immediately no delay
@@ -29,11 +29,30 @@ public:
         }
     }
 
-    void Render(const std::stack<int>& data) {
+    void Render(const std::deque<int>& data) {
         int cellWidth = 60;
         int cellHeight = 60;
         int startX = 40;
         int y = 300;
+
+        // Stack container for containing all the elements
+            //Container containerVisualization = Container("Visualization", Rectangle{ 20, 260.0f, GetScreenWidth() - 540.0f, GetScreenHeight() - 280.0f }, 0.05f);
+
+        int containerWidth = 280;
+        int containerHeight = 500;
+        float containerX = 20 + (GetScreenWidth() - 540.0f - containerWidth) / 2;
+        float containerY = 280;
+        Rectangle stackContainerRect = {
+            containerX,
+            containerY,
+            containerWidth,
+            containerHeight
+        };
+        DrawRectangleLinesEx(
+            stackContainerRect,
+            4.0f,
+            BLACK
+        );
 
         for (size_t i = 0; i < data.size(); i++)
         {
@@ -49,18 +68,19 @@ public:
                 if (currentEvent.type == EventType::Update && i == currentEvent.index)
                     color = PURPLE;
             }
+            
 
             Rectangle rect = {
-                startX + i * cellWidth,
-                y,
-                cellWidth + 4,
+                containerX,
+                containerY + containerHeight - cellHeight - (cellHeight - 4) * i,
+                containerWidth,
                 cellHeight
             };
 
-            DrawRectanglePro(
-                rect, {}, 0,
-                color
-            );
+            //DrawRectangleProRounded(
+            //    rect, {}, 0,
+            //    color
+            //);
 
             DrawRectangleLinesEx(
                 rect,
@@ -68,28 +88,30 @@ public:
                 BLACK
             );
             int fontSize = 30;
-            const char* valueText = TextFormat("%d", 0);
+            const char* valueText = TextFormat("%d", data[i]);
             Vector2 textSize = MeasureTextEx(font, valueText, fontSize, 0);
 
             DrawTextEx(
                 font,
                 valueText,
-                { (startX + i * cellWidth + (cellWidth - textSize.x) / 2),
-                y + (cellHeight - textSize.y) / 2 },
+                { 
+                    containerX + (containerWidth - textSize.x) / 2,
+                    containerY + containerHeight - cellHeight - (cellHeight - 4) * i
+                },
                 fontSize,
                 0,
                 BLACK
             );
 
-            DrawTextEx(
-                font,
-                TextFormat("%d", i),
-                { startX + i * cellWidth + 22 - 0.0f,
-                y + 70 - 0.0f },
-                fontSize,
-                0,
-                GRAY
-            );
+            //DrawTextEx(
+            //    font,
+            //    TextFormat("%d", i),
+            //    { startX + i * cellWidth + 22 - 0.0f,
+            //    y + 70 - 0.0f },
+            //    fontSize,
+            //    0,
+            //    GRAY
+            //);
 
             // Search not needed for stack
             //if (currentEvent.type == EventType::Search)

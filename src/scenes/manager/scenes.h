@@ -8,6 +8,8 @@
 // Visualizers
 #include "../../visuals/ArrayVisualizer.h"
 #include "../../visuals/LinkListVisualizer.h"
+#include "../../visuals/StackVisualizer.h"
+
 
 // UI componenents
 #include "../../ui/Button.h"
@@ -128,7 +130,7 @@ class StackScene
 private:
 	EventBus bus;
 	Stack stack = Stack(bus);
-	ArrayVisualizer visualizer;
+	StackVisualizer visualizer;
 
 	std::vector<std::string> historyStack;
 
@@ -146,8 +148,8 @@ private:
 	InputField inputValue = InputField(inputFieldWidth, 60.0f, "Value", 3);
 
 	// Alerts
-	Alert alertStackFull = Alert("Array Full", "Array is limited to 10 elements.");
-	Alert alertStackEmpty = Alert("Array Empty", "Array is empty.");
+	Alert alertStackFull = Alert("Stack Full", "Stack is limited to 10 elements.");
+	Alert alertStackEmpty = Alert("Stack Empty", "There are no elements inside the stack.");
 	//Alert alertInvalidIndex = Alert("Invalid Index", "Please provide a valid index between ...");
 	//Alert alertSearchInputNotProvided = Alert("Empty Input", "Please provide a value to perform the search.");
 

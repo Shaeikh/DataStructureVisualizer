@@ -14,7 +14,7 @@ int main() {
 
     SceneManager Game;
 
-    Game.PushScene(std::make_unique<LinkListScene>());
+    Game.PushScene(std::make_unique<StackScene>());
 
     SetTargetFPS(60);
 

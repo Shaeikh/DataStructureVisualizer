@@ -1,9 +1,10 @@
 #pragma once
 
 #include <iostream>
-#include <stack>
+#include <deque>
 #include "../../Events/EventBus.h"
 
+// ts ain't gon fly, better use deque (could use vec) instead of stack
 class Stack {
 public:
     Stack(EventBus& bus) : eventBus(bus) {}
@@ -12,9 +13,9 @@ public:
     {
         if (data.size() == 20)
             return;
-        data.push(value);
+        data.push_front(value);
 
-        eventBus.emit({ EventType::Insert, 0, value });
+        eventBus.emit({ EventType::Push, 0, value });
     }
 
     void Pop()
@@ -22,14 +23,18 @@ public:
         if (data.empty())
             return;
 
-        data.pop();
+        int tmp = data.front();
+        data.pop_front();
 
-        eventBus.emit({ EventType::Pop, 0, 0 });
+        eventBus.emit({ EventType::Pop, 0, tmp });
     }
 
     void Update(int value)
     {
-        data.top() = value;
+        if (data.empty())
+            return;
+
+        data.front() = value;
 
         eventBus.emit({ EventType::Update, 0, value });
     }
@@ -37,7 +42,7 @@ public:
     int Top()
     {
         if (!data.empty())
-            return data.top();
+            return data.front();
         return -9999;
     }
 
@@ -73,11 +78,11 @@ public:
     //    return std::nullopt;
     //}
 
-    const std::stack<int>& GetData() const {
+    const std::deque<int>& GetData() const {
         return data;
     }
 
 private:
-    std::stack<int> data;
+    std::deque<int> data;
     EventBus& eventBus;
 };
