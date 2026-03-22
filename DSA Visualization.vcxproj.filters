@@ -45,6 +45,9 @@
     <ClCompile Include="src\scenes\DataStructures\Linear\StackScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\DataStructures\Linear\Queue.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\scenes\manager\Scenes.h">
