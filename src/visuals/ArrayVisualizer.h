@@ -86,8 +86,10 @@ public:
             DrawTextEx(
                 font,
                 valueText,
-                { (startX + i * cellWidth + (cellWidth - textSize.x) / 2),
-                y + (cellHeight - textSize.y) / 2 },
+                { 
+                    (startX + i * cellWidth + (cellWidth - textSize.x) / 2),
+                    y + (cellHeight - textSize.y) / 2 
+                },
                 fontSize,
                 0,
                 BLACK

@@ -39,7 +39,7 @@ public:
 	int Front() const
 	{
 		if (data.empty())
-			return;
+			return -9999;
 		return data.back();
 	}
 

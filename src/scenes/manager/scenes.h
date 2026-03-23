@@ -10,6 +10,7 @@
 #include "../../visuals/ArrayVisualizer.h"
 #include "../../visuals/LinkListVisualizer.h"
 #include "../../visuals/StackVisualizer.h"
+#include "../../visuals/QueueVisualizer.h"
 
 
 // UI componenents
@@ -184,7 +185,7 @@ class QueueScene
 private:
 	EventBus bus;
 	Queue queue = Queue(bus);
-	StackVisualizer visualizer;
+	QueueVisualizer visualizer;
 
 	std::vector<std::string> historyStack;
 
@@ -202,8 +203,8 @@ private:
 	InputField inputValue = InputField(inputFieldWidth, 60.0f, "Value", 3);
 
 	// Alerts
-	Alert alertQueueFull = Alert("Stack Full", "Stack is limited to 8 elements.");
-	Alert alertQueueEmpty = Alert("Stack Empty", "There are no elements inside the stack.");
+	Alert alertQueueFull = Alert("Queue Full", "Queue is limited to 18 elements.");
+	Alert alertQueueEmpty = Alert("Queue Empty", "There are no elements inside the queue.");
 	//Alert alertInvalidIndex = Alert("Invalid Index", "Please provide a valid index between ...");
 	//Alert alertSearchInputNotProvided = Alert("Empty Input", "Please provide a value to perform the search.");
 

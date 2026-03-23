@@ -27,7 +27,7 @@ void QueueScene::Update(float dt)
 	int fontSize = 50;
 	std::string queueDef = "A linear data structure that follows First-In-First-Out (FIFO) order, allowing insertion from 'back' and deletion/pop from the 'front'.";
 	SetTextLineSpacing(-5);
-	std::string queueDefWrapped = Util::WrapTextToWidth(queueDef, GetScreenWidth() - 20, fontSize);
+	std::string queueDefWrapped = Util::WrapTextToWidth(queueDef, GetScreenWidth() - 60, fontSize);
 
 	//Heading
 	DrawTextEx(font, "Queue:", { 40, 40 }, 60, 0, BLACK);
@@ -96,7 +96,7 @@ void QueueScene::Update(float dt)
 		inputValue.GetText() : GetRandomValue(1, 99);
 
 	b_push.OnClick([&]() {
-		if (queue.GetData().size() == 8)
+		if (queue.GetData().size() == 18)
 			alertQueueFull.Show();
 		//else if (ii < 0 || ii > array.GetData().size())
 		//{
