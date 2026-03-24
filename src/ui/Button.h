@@ -50,6 +50,131 @@ public:
 			0.0f,
 			colorText);
 		DrawRectangleLinesEx(boundingBox, 4.0f, BLACK);
+
+		float paddingX = 20.0f;
+		float paddingY = 10.0f;
+
+		//boundingBox.width = textSize.x + paddingX * 2.5;
+		//boundingBox.height = textSize.y + paddingY * 2.5;
+
+		DrawTriangle(
+			Vector2{
+				boundingBox.x,
+				boundingBox.y
+			},
+			Vector2{
+				boundingBox.x,
+				boundingBox.y + 15 * textSize.y * 0.03f
+			},
+			Vector2{
+				boundingBox.x + 15.0f * textSize.y * 0.03f,
+				boundingBox.y
+			},
+
+			RAYWHITE
+		);
+
+		DrawLineEx(
+			{
+				boundingBox.x + 15.0f * textSize.y * 0.03f,
+				boundingBox.y + 2.0f
+			},
+			{
+				boundingBox.x + 2.0f,
+				boundingBox.y + 15 * textSize.y * 0.03f
+			},
+			4.0f,
+			BLACK
+		);
+
+		DrawTriangle(
+			Vector2{
+				boundingBox.x + boundingBox.width - 15.0f * textSize.y * 0.03f,
+				boundingBox.y
+			},
+			Vector2{
+				boundingBox.x + boundingBox.width,
+				boundingBox.y + 15 * textSize.y * 0.03f
+			},
+			Vector2{
+				boundingBox.x + boundingBox.width,
+				boundingBox.y
+			},
+			
+			RAYWHITE
+		);
+
+		DrawLineEx(
+			{
+				boundingBox.x + boundingBox.width - 15.0f * textSize.y * 0.03f,
+				boundingBox.y + 2.0f
+			},
+			{
+				boundingBox.x + boundingBox.width - 2.0f,
+				boundingBox.y + 15 * textSize.y * 0.03f
+			},
+			4.0f,
+			BLACK
+		);
+
+		DrawTriangle(
+			Vector2{
+				boundingBox.x,
+				boundingBox.y + boundingBox.height
+			},
+			Vector2{
+				boundingBox.x + 15 * textSize.y * 0.03f,
+				boundingBox.y + boundingBox.height
+			},
+			Vector2{
+				boundingBox.x,
+				boundingBox.y + boundingBox.height - 15.0f * textSize.y * 0.03f
+			},
+			RAYWHITE
+		);
+
+		DrawLineEx(
+			{
+				boundingBox.x + 2.0f,
+				boundingBox.y + boundingBox.height - 15.0f * textSize.y * 0.03f
+			},
+			{
+				boundingBox.x + 15 * textSize.y * 0.03f,
+				boundingBox.y + boundingBox.height - 2.0f
+			},
+			4.0f,
+			BLACK
+		);
+
+		DrawTriangle(
+			Vector2{
+				boundingBox.x + boundingBox.width,
+				boundingBox.y + boundingBox.height
+			},
+			Vector2{
+				boundingBox.x + boundingBox.width,
+				boundingBox.y + boundingBox.height - 15.0f * textSize.y * 0.03f
+			},
+			Vector2{
+				boundingBox.x + boundingBox.width - 15 * textSize.y * 0.03f,
+				boundingBox.y + boundingBox.height
+			},
+			RAYWHITE
+		);
+
+		DrawLineEx(
+			{
+				boundingBox.x + boundingBox.width - 2.0f,
+				boundingBox.y + boundingBox.height - 15.0f * textSize.y * 0.03f
+			},
+			{
+				boundingBox.x + boundingBox.width - 15 * textSize.y * 0.03f,
+				boundingBox.y + boundingBox.height - 2.0f
+			},
+			4.0f,
+			BLACK
+		);
+
 		//Vector2 screenPos = scaler.scaleVector(boundingBox.x, boundingBox.y);
 
 		//scaler.drawRectRounded(boundingBox, roundness, 255, colorRect);

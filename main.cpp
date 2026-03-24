@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "src/scenes/manager/Scenes.h"
+#include "src/ui/Button.h"
 
 int main() {
     SetConfigFlags(FLAG_WINDOW_UNDECORATED);
@@ -15,15 +16,23 @@ int main() {
 
     SetTargetFPS(60);
 
+    Rectangle rect = {
+        .x = 100,
+        .y = 100,
+        .width = 50,
+        .height = 30
+    };
+    Button b = Button(rect, "Button", 50);
+
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
-        
+        //b.Update();
         Game.UpdateScene(dt);
         BeginDrawing();
         ClearBackground(RAYWHITE);
         
         Game.RenderScene();
-        
+        //b.Draw();
 
         EndDrawing();
     }
