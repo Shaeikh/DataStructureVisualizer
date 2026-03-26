@@ -87,64 +87,64 @@ public:
 			BLACK
 		);
 
-		DrawTriangle(
-			Vector2{
-				boundingBox.x + boundingBox.width - 15.0f * textSize.y * 0.03f,
-				boundingBox.y
-			},
-			Vector2{
-				boundingBox.x + boundingBox.width,
-				boundingBox.y + 15 * textSize.y * 0.03f
-			},
-			Vector2{
-				boundingBox.x + boundingBox.width,
-				boundingBox.y
-			},
-			
-			RAYWHITE
-		);
+		//DrawTriangle(
+		//	Vector2{
+		//		boundingBox.x + boundingBox.width - 15.0f * textSize.y * 0.03f,
+		//		boundingBox.y
+		//	},
+		//	Vector2{
+		//		boundingBox.x + boundingBox.width,
+		//		boundingBox.y + 15 * textSize.y * 0.03f
+		//	},
+		//	Vector2{
+		//		boundingBox.x + boundingBox.width,
+		//		boundingBox.y
+		//	},
+		//	
+		//	RAYWHITE
+		//);
 
-		DrawLineEx(
-			{
-				boundingBox.x + boundingBox.width - 15.0f * textSize.y * 0.03f,
-				boundingBox.y + 2.0f
-			},
-			{
-				boundingBox.x + boundingBox.width - 2.0f,
-				boundingBox.y + 15 * textSize.y * 0.03f
-			},
-			4.0f,
-			BLACK
-		);
+		//DrawLineEx(
+		//	{
+		//		boundingBox.x + boundingBox.width - 15.0f * textSize.y * 0.03f,
+		//		boundingBox.y + 2.0f
+		//	},
+		//	{
+		//		boundingBox.x + boundingBox.width - 2.0f,
+		//		boundingBox.y + 15 * textSize.y * 0.03f
+		//	},
+		//	4.0f,
+		//	BLACK
+		//);
 
-		DrawTriangle(
-			Vector2{
-				boundingBox.x,
-				boundingBox.y + boundingBox.height
-			},
-			Vector2{
-				boundingBox.x + 15 * textSize.y * 0.03f,
-				boundingBox.y + boundingBox.height
-			},
-			Vector2{
-				boundingBox.x,
-				boundingBox.y + boundingBox.height - 15.0f * textSize.y * 0.03f
-			},
-			RAYWHITE
-		);
+		//DrawTriangle(
+		//	Vector2{
+		//		boundingBox.x,
+		//		boundingBox.y + boundingBox.height
+		//	},
+		//	Vector2{
+		//		boundingBox.x + 15 * textSize.y * 0.03f,
+		//		boundingBox.y + boundingBox.height
+		//	},
+		//	Vector2{
+		//		boundingBox.x,
+		//		boundingBox.y + boundingBox.height - 15.0f * textSize.y * 0.03f
+		//	},
+		//	RAYWHITE
+		//);
 
-		DrawLineEx(
-			{
-				boundingBox.x + 2.0f,
-				boundingBox.y + boundingBox.height - 15.0f * textSize.y * 0.03f
-			},
-			{
-				boundingBox.x + 15 * textSize.y * 0.03f,
-				boundingBox.y + boundingBox.height - 2.0f
-			},
-			4.0f,
-			BLACK
-		);
+		//DrawLineEx(
+		//	{
+		//		boundingBox.x + 2.0f,
+		//		boundingBox.y + boundingBox.height - 15.0f * textSize.y * 0.03f
+		//	},
+		//	{
+		//		boundingBox.x + 15 * textSize.y * 0.03f,
+		//		boundingBox.y + boundingBox.height - 2.0f
+		//	},
+		//	4.0f,
+		//	BLACK
+		//);
 
 		DrawTriangle(
 			Vector2{
