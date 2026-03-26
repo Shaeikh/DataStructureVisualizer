@@ -16,9 +16,37 @@
 // UI componenents
 #include "../../ui/Button.h"
 #include "../../ui/Row.h"
+#include "../../ui/Column.h"
 #include "../../ui/Alert.h"
 #include "../../ui/TextInputField.h"
 #include "../../ui/Container.h"
+
+// Menu Scene
+class MenuScene
+	: public Scene
+{
+public:
+	MenuScene()
+	{
+		UnloadImage(logoImg);
+
+		c_menuItems.Add({ &b_arrayScene, &b_linkListScene, &b_queueScene, &b_stackScene });
+	}
+	void Render() override;
+	void Update(float dt) override;
+private:
+	Image logoImg = LoadImage("assets/images/logo.png");
+	Texture2D logo = LoadTextureFromImage(logoImg);
+
+	Rectangle buttonDimensions = { 0, 0, 210, 70 };
+	Button b_arrayScene = Button(buttonDimensions, "Array", 50);
+	Button b_linkListScene = Button(buttonDimensions, "LList", 50);
+	Button b_queueScene = Button(buttonDimensions, "Queue", 50);
+	Button b_stackScene = Button(buttonDimensions, "Stack", 50);
+
+	Column c_menuItems;
+
+};
 
 class ArrayScene
 	: public Scene
@@ -231,3 +259,4 @@ public:
 	void Render() override;
 	void Update(float dt) override;
 };
+

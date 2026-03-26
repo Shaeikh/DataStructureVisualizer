@@ -12,7 +12,7 @@ int main() {
 
     SceneManager Game;
 
-    Game.PushScene(std::make_unique<QueueScene>());
+    Game.PushScene(std::make_unique<MenuScene>());
 
     SetTargetFPS(60);
 

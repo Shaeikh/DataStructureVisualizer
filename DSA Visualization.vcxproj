@@ -141,6 +141,7 @@
     <ClCompile Include="src\scenes\DataStructures\Linear\QueueScene.cpp" />
     <ClCompile Include="src\scenes\DataStructures\Linear\StackScene.cpp" />
     <ClCompile Include="src\scenes\manager\SceneManager.h" />
+    <ClCompile Include="src\scenes\MenuScene.cpp" />
     <ClCompile Include="src\ui\Alert.h" />
     <ClCompile Include="src\ui\TextInputField.h" />
     <ClCompile Include="src\util\util.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="src\core\Events\Observer.h" />
     <ClInclude Include="src\scenes\manager\Scenes.h" />
     <ClInclude Include="src\ui\Button.h" />
+    <ClInclude Include="src\ui\Column.h" />
     <ClInclude Include="src\ui\Constants.h" />
     <ClInclude Include="src\ui\Container.h" />
     <ClInclude Include="src\ui\Row.h" />
