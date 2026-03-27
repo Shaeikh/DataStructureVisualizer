@@ -74,6 +74,23 @@ public:
 			RAYWHITE
 		);
 
+		DrawTriangle(
+			Vector2{
+				boundingBox.x,
+				boundingBox.y
+			},
+			Vector2{
+				boundingBox.x,
+				boundingBox.y + 10 * textSize.y * 0.03f
+			},
+			Vector2{
+				boundingBox.x + 10.0f * textSize.y * 0.03f,
+				boundingBox.y
+			},
+
+			BLACK
+		);
+
 		DrawLineEx(
 			{
 				boundingBox.x + 15.0f * textSize.y * 0.03f,
@@ -160,6 +177,22 @@ public:
 				boundingBox.y + boundingBox.height
 			},
 			RAYWHITE
+		);
+
+		DrawTriangle(
+			Vector2{
+				boundingBox.x + boundingBox.width,
+				boundingBox.y + boundingBox.height
+			},
+			Vector2{
+				boundingBox.x + boundingBox.width,
+				boundingBox.y + boundingBox.height - 10.0f * textSize.y * 0.03f
+			},
+			Vector2{
+				boundingBox.x + boundingBox.width - 10 * textSize.y * 0.03f,
+				boundingBox.y + boundingBox.height
+			},
+			BLACK
 		);
 
 		DrawLineEx(
