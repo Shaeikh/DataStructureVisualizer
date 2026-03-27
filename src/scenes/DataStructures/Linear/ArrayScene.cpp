@@ -1,5 +1,4 @@
 #include "../../manager/Scenes.h"
-
 void ArrayScene::Render()
 {
 	visualizer.Render(array.GetData());
@@ -23,6 +22,11 @@ void ArrayScene::Render()
 
 void ArrayScene::Update(float dt)
 {
+	if (IsKeyPressed(KEY_ESCAPE))
+	{
+		Game.PopScene();
+		return;
+	}
 	// Array Definition
 	int fontSize = 50;
 	std::string arrayDef = "A linear data structure that stores a collection of elements of the same data type in contiguous memory locations under a single variable name.";

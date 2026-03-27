@@ -43,6 +43,7 @@ private:
 	Button b_linkListScene = Button(buttonDimensions, "LList", 50);
 	Button b_queueScene = Button(buttonDimensions, "Queue", 50);
 	Button b_stackScene = Button(buttonDimensions, "Stack", 50);
+	Button b_exitGame = Button(Rectangle{ GetScreenWidth() - 110.0f, GetScreenHeight() - 75.0f, 150, 40 }, "Exit", 30);
 
 	Column c_menuItems;
 
@@ -260,3 +261,6 @@ public:
 	void Update(float dt) override;
 };
 
+
+
+extern SceneManager Game;

@@ -64,7 +64,7 @@ public:
 		if (!m_scenes.empty())
 			m_scenes.top()->Update(dt);
 	}
-
+	
 	void ClearScenes()
 	{
 		while (!m_scenes.empty())

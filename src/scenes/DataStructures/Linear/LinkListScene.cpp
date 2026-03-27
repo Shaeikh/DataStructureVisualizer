@@ -23,6 +23,12 @@ void LinkListScene::Render()
 
 void LinkListScene::Update(float dt)
 {
+	if (IsKeyPressed(KEY_ESCAPE))
+	{
+		Game.PopScene();
+		return;
+	}
+
 	// Link List Definition
 	int fontSize = 50;
 	std::string llDef = "A linear data structure where elements are stored as nodes, each containing data and a pointer \nlinking to the next node in sequence together.";

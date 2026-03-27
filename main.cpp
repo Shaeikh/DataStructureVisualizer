@@ -10,8 +10,8 @@ int main() {
     InitWindow(1920, 1080, "Queue Visualizer");
     Util::InitFonts();
 
-    SceneManager Game;
-
+    
+    SetExitKey(NULL);
     Game.PushScene(std::make_unique<MenuScene>());
 
     SetTargetFPS(60);

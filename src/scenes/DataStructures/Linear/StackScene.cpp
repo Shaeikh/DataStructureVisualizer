@@ -23,6 +23,12 @@ void StackScene::Render()
 
 void StackScene::Update(float dt)
 {
+	if (IsKeyPressed(KEY_ESCAPE))
+	{
+		Game.PopScene();
+		return;
+	}
+
 	// Array Definition
 	int fontSize = 50;
 	std::string stackDef = "A linear data structure that follows Last-In-First-Out (LIFO) order, allowing insertion and deletion of elements only at one end called the top.";

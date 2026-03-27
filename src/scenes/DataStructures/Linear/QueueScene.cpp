@@ -23,6 +23,11 @@ void QueueScene::Render()
 
 void QueueScene::Update(float dt)
 {
+	if (IsKeyPressed(KEY_ESCAPE))
+	{
+		Game.PopScene();
+		return;
+	}
 	// Array Definition
 	int fontSize = 50;
 	std::string queueDef = "A linear data structure that follows First-In-First-Out (FIFO) order, allowing insertion from 'back' and deletion/pop from the 'front'.";
